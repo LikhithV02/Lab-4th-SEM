@@ -68,14 +68,14 @@ public class KruskalMCST {
     childrencnt = new int[n];
     // initialize each node to be its parent
     for (int i = 0; i < n; i++) {
-      parent[i] =     // ??insert code here
+      parent[i] = i;    // ??insert code here
       // initialize that parent has no children except itself
-      childrencnt[i] = // ??insert code here;
+      childrencnt[i] = 0;// ??insert code here;
     }
   }
 
   public int getParent(int u) {
-    // ??insert code here
+    return this.parent[u];
   }
 
   public void display() {
@@ -89,7 +89,7 @@ public class KruskalMCST {
   public int find(int u) {
     // traverse the tree from the node till the root of the tree
     while (parent[u] != u) {
-      // ??insert code here
+      u = parent[u];
     }
     return u;
   }
