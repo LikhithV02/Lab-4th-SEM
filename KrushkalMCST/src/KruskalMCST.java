@@ -35,7 +35,8 @@ class Edge implements Comparable<Edge> {
 
   public Edge(int src, int dst, int cost) {
     this.src = src;
-    // ??insert code here
+    this.dst = dst;
+    this.cost = cost;
   }
 
   // define getter and setter methods
@@ -44,11 +45,11 @@ class Edge implements Comparable<Edge> {
   }
 
   public int getDst() {
-        // ??insert code here
+    return this.dst;
   }
 
   public int getCost() {
-        // ??insert code here
+    return this.cost;
   }
 
   public void display() {
@@ -100,7 +101,7 @@ public class KruskalMCST {
       parent[u] = v;
       childrencnt[v] += childrencnt[u];
     } else {
-    // ??insert code here
+      // ??insert code here
     }
   }
 

@@ -7,7 +7,7 @@ public class PrimsInput {
     public static void main (String[] args) throws FileNotFoundException {
         int n; // number of nodes
         int avgconn; // Average number of edges per node
-        PrintStream myconsole = new PrintStream(new File("D:/Lab_Programs/4th SEM/LAB/MST_Prims/src/Output.txt"));
+        PrintStream myconsole = new PrintStream(new File("Output.txt"));
         System.setOut(myconsole);
         if (args.length != 2) {
             System.out.println("Usage: java program <num of nodes> <avg number of connected nodes");
