@@ -10,6 +10,8 @@ class KruskalInput {
         int n; // number of nodes
         int e; // number of edges
         int avgconn; // Average number of edges per node
+        PrintStream myconsole = new PrintStream(new File("Output.txt"));
+        System.setOut(myconsole);
         if (args.length != 2) {
             System.out.println("Usage: java program <num of nodes> <avg number of connected nodes");
             System.exit(-1);

@@ -2,7 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Floyd {
+public class Floyd {    
     // update the distance between all pairs w.r.t. shortest path
     static void allpairss(int n, int[][] graph) {
         for (int k = 0; k < n; k++) {
