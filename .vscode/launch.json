@@ -4,7 +4,13 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-    
+        {
+            "type": "java",
+            "name": "Launch SubsetSum_Sorted",
+            "request": "launch",
+            "mainClass": "SubsetSum_Sorted",
+            "projectName": "Lab-4th-SEM_d039ea1e"
+        },
         {
             "type": "java",
             "name": "Launch Hcycle",

@@ -15,7 +15,9 @@ import java.util.Scanner;
  * <n> <sum># first line contains number of elements, and sum
  * v1, v2, ..., vn # n values
  */
-public class SubsetSum_Sorted {
+
+
+public class SubsetSum_Unsorted {
 
   public static void display(int size, int[] elem, int[] x) {
     // display all the elements counted
@@ -39,28 +41,33 @@ public class SubsetSum_Sorted {
    * @param tgtsum:  target sum to be achieve
    * @return: true or false
    */
+
   public static void findElements(int size, int[] elem, int[] x,
                                   int index, int currsum, int tgtsum) {
-    if (currsum==tgtsum) {// solution found with current index
-      display(size, elem, x); // display the current subset.
-      x[index] = 0;//insert code here// no need to explore further with this element
+    if (index >= 0 && currsum == tgtsum) {// solution found with current index
+      // display the current subset.
+      x[index] = 1;//insert code here; // no need to explore       								//further with this element
+      display(size, elem, x);
       return;
     }
     // if this is the last element, no more exploration
-    if (index==size-1) {
+    if (index == size - 1) {
       return;
     }
     // explore if next element can be included
-    if (currsum+elem[index + 1] <= tgtsum) {
+    if (currsum < tgtsum) {
       x[index + 1] = 1;
-      findElements(size,elem, x, index+1, currsum, tgt );
+      currsum += elem[index+1];
+      findElements(size, elem, x, index+1, currsum, tgtsum);
     }
-    // explore further by excluding current element and considering next elements
-    x[index] = 0;
-    currsum = //insert code here
-    if (//insert code here) {
-      x[index + 1] = 1;
-      findElements(//insert code here);
+    // explore by excluding next element
+    //insert code here
+    if (x[index + 1] != 0) {
+      x[index + 1] = 0;
+      currsum = currsum - elem[index + 1];
+      if (currsum < tgtsum) {
+        findElements(size, elem, x, index + 1, currsum, tgtsum);
+      }
     }
   }
 
@@ -77,15 +84,12 @@ public class SubsetSum_Sorted {
       elem[i] = in.nextInt();
       total += elem[i];
     }
-    // sort the input array.
-    Arrays.sort(elem);
     // check feasibility of solution
-    if (total<sum) {
+    if (total < sum) {
       System.out.println("No solution possible");
       return;
     }
-    // start with first element
-    x[0] = 1;
-    findElements(n, elem, x, 0, elem[0], sum);
+    // start with root i.e. no element included
+    findElements(n, elem, x, -1, 0, sum);
   } // end main
 } // end class

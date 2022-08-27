@@ -1,6 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.Scanner;
+
 /**
  * Sum of subset problem using backtracking.
  * First all elements are sorted. This helps reducing our search futher.
@@ -14,7 +16,7 @@ import java.util.Scanner;
  * <n> <sum># first line contains number of elements, and sum
  * v1, v2, ..., vn # n values
  */
-public class SubsetSum {
+public class SubsetSum_Sorted {
 
   public static void display(int size, int[] elem, int[] x) {
     // display all the elements counted
@@ -39,25 +41,32 @@ public class SubsetSum {
    * @return: true or false
    */
   public static void findElements(int size, int[] elem, int[] x,
-                                  int index, int currsum, int tgtsum) {
-    if (//insert code here) {// solution found with current index
+      int index, int currsum, int tgtsum) {
+    if (currsum == tgtsum) {// solution found with current index
       display(size, elem, x); // display the current subset.
-      x[index] = //insert code here; // no need to explore       								//further with this element
+      x[index] = 0;// insert code here// no need to explore further with this element
       return;
     }
     // if this is the last element, no more exploration
-    if (//insert code here) {
+    if (size == 0 && tgtsum != 0) {
       return;
     }
     // explore if next element can be included
-    if (//insert code here) {
+    if (currsum < tgtsum && index != size - 1) {
       x[index + 1] = 1;
-      findElements(//insert code here);
+      findElements(size, elem, x, index + 1, currsum + elem[index + 1], tgtsum);
     }
-    // explore by excluding next element
-    //insert code here
-
-    findElements(//insert code here);
+    // explore further by excluding current element and considering next elements
+    if (x[index] != 0) {
+      x[index] = 0;
+      currsum = currsum - elem[index];// insert code here
+      if (index != size - 1) {
+        if (currsum < tgtsum) {
+          x[index + 1] = 1;
+          findElements(size, elem, x, index, currsum, tgtsum);
+        }
+      }
+    }
   }
 
   public static void main(String[] args) throws FileNotFoundException {
@@ -66,21 +75,22 @@ public class SubsetSum {
     Scanner in = new Scanner(inFile);
     int n = in.nextInt(); // number of elements
     int sum = in.nextInt(); // sum value
-    int[] elem = new int[n]; //holds element values
+    int[] elem = new int[n]; // holds element values
     int[] x = new int[n]; // 1- indicating if element is counted, 0 otherwise
     int total = 0; // total of all elements
     for (int i = 0; i < n; i++) {
       elem[i] = in.nextInt();
-      total += //insert code here
+      total += elem[i];
     }
-    
+    // sort the input array.
+    Arrays.sort(elem);
     // check feasibility of solution
-    if ( //insert code here) {
+    if (total < sum) {
       System.out.println("No solution possible");
       return;
     }
-    // start with root i.e. no element included
-    findElements(n, elem, x, -1, 0, sum);
+    // start with first element
+    x[0] = 1;
+    findElements(n, elem, x, 0, elem[0], sum);
   } // end main
 } // end class
-
