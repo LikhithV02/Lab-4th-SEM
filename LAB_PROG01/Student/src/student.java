@@ -35,18 +35,18 @@ public class student {
         // data filename is the argument
         ArrayList<student> students = new ArrayList<student>();
         String filename;
-        if (args.length == 0) {
+        /*if (args.length == 0) {
             Scanner in = new Scanner(System.in);
             System.out.println(("Enter input file"));
             filename = in.next();
-        } else {
+        } else */
             filename = args[0];
-        }
-        System.out.println(filename);
+        
+        //System.out.println(filename);
         File infile = new File(filename);
         Scanner in = new Scanner(infile);
         int cnt = Integer.parseInt(in.nextLine()); // get number of records
-        System.out.println("Total record: " + cnt);
+        //System.out.println("Total record: " + cnt);
         // String temp = in.nextLine();
         for (int a = 0; a < cnt; a++) {
             if (a > cnt) {
@@ -63,11 +63,10 @@ public class student {
             String[] arr = line.split(",");
             long a;
             if (arr.length < 4) {
-                System.out.println("Insufficient input " + line);
+                System.out.println("Insufficient input: " + line);
                 continue;
                 // System.exit(-1);
             }
-
             students.add(new student(arr[0], arr[1], arr[2], arr[3]));
         }
         // all records are read. Display these
