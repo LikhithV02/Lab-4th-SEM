@@ -6,7 +6,8 @@ import java.util.Scanner;
 /**
  * Reads data from file. First line contains number of entries N
  * Each of N lines contains 4 values separated by comma(,)
- * The program reads the data from the files, stores them in ArrayList and prints
+ * The program reads the data from the files, stores them in ArrayList and
+ * prints
  */
 
 public class student {
@@ -46,8 +47,8 @@ public class student {
         Scanner in = new Scanner(infile);
         int cnt = Integer.parseInt(in.nextLine()); // get number of records
         System.out.println("Total record: " + cnt);
-        //String temp = in.nextLine();
-        for(int a=0; a < cnt ;a++){
+        // String temp = in.nextLine();
+        for (int a = 0; a < cnt; a++) {
             if (a > cnt) {
                 System.out.println("Input records =" + a + ", greater than " + cnt);
                 System.exit(-1);
@@ -64,7 +65,7 @@ public class student {
             if (arr.length < 4) {
                 System.out.println("Insufficient input " + line);
                 continue;
-                //System.exit(-1);
+                // System.exit(-1);
             }
 
             students.add(new student(arr[0], arr[1], arr[2], arr[3]));
