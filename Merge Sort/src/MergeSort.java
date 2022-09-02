@@ -50,7 +50,6 @@ public class MergeSort {
             arr[k] = R[j];
             j++;
             k++;
-
         }
     }
 
