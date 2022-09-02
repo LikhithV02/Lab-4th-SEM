@@ -113,7 +113,7 @@ public class Quicksort {
 
         // ??insert code here
         if (args.length < 3) {
-            throw new IllegalArgumentException(" three args rrequired");
+            throw new IllegalArgumentException(" three args required");
         }
 
         n = Integer.parseInt(args[0]);
