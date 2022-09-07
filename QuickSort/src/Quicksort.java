@@ -141,7 +141,6 @@ public class Quicksort {
                 }
                 starttime = System.nanoTime();
                 quickSort(arr, 0, arr.length - 1);
-
                 endtime = System.nanoTime();
 
                 sum_t += (endtime - starttime);

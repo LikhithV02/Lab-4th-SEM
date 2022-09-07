@@ -40,8 +40,8 @@ public class SubsetSum_Sorted {
    * @param tgtsum:  target sum to be achieve
    * @return: true or false
    */
-  public static void findElements(int size, int[] elem, int[] x,
-      int index, int currsum, int tgtsum) {
+  public static void findElements(int size, int[] elem, int[] x, 
+    int index, int currsum, int tgtsum) {
     if (currsum == tgtsum) {// solution found with current index
       display(size, elem, x); // display the current subset.
       x[index] = 0;// insert code here// no need to explore further with this element

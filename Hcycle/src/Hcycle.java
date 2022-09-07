@@ -30,7 +30,7 @@ public class Hcycle {
                         break;
                 }
                 if (j == k) { //if last vertex, check for edge with x[1]
-                    if (k<n || k==n && graph[x[n]][x[1]]!=0)
+                    if (k<n || k==n && graph[x[n]][x[1]]!=0)    
                         return;
                 }
             } // end if G[x[k-1]][x[k]]

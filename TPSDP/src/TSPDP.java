@@ -97,9 +97,6 @@ public class TSPDP {
         return mincost;//insert code here;
     }
 
-
-
-
     /**
      * assumes start vertex is always 0.
      * Thus, set {v1,v2,...}-{0} will be considered for power set
