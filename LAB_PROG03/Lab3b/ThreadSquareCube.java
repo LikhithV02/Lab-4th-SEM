@@ -54,8 +54,8 @@ public class ThreadSquareCube {
     public static class PowerThread implements Runnable {
         private final BlockingQueue<Integer> queue;
         private final int expon;
-
         private int cnt;
+        
         public PowerThread(BlockingQueue<Integer> queue, int expon, int cnt) {
             this.queue = queue;
             this.expon= expon;

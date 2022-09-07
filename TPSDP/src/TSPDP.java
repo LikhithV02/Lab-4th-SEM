@@ -58,7 +58,7 @@ public class TSPDP {
          * thus binary representation for power set of {1,2,3} would be as follows
          * Ø=000, {1}=001, {2}=010, {3}=100, {1,2}=011,
          * {1,3}=101, {2,3} = 110, {1,2,3} = 111
-         * Converting binary to decimal gives column  index for dpmem lookup
+         * Converting binary to decimal gives column index for dpmem lookup
          */
 
         // compute the column index for current node set and check
